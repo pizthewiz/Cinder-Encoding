@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cinder>
+<block
+    name="Encoding"
+    id="com.chordedconstructions.cinder-encoding"
+    git="https://github.com/pizthewiz/Cinder-Encoding.git"
+    author="Jean-Pierre Mouilleseaux"
+    summary="SLIP and COBS encode/decode handling"
+    url="https://github.com/pizthewiz/Cinder-Encoding"
+    >
+    <header>include/Cinder-Encoding.h</header>
+    <source>src/Cinder-Encoding.cpp</source>
+    <copyExclude>samples</copyExclude>
+</block>
+</cinder>
