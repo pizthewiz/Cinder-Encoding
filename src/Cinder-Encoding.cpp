@@ -29,7 +29,7 @@ BufferRef SLIPEncode(const BufferRef& buffer) {
 size_t SLIPEncode(const uint8_t* data, size_t size, uint8_t* encodedData) {
     size_t readIDX = 0, writeIDX = 0;
 
-    // flush any accumulated line noise
+    // double-ENDed variant, will flush any accumulated line noise
     encodedData[writeIDX++] = SLIP_END;
 
     while (readIDX < size) {
@@ -51,7 +51,7 @@ size_t SLIPEncode(const uint8_t* data, size_t size, uint8_t* encodedData) {
 }
 
 BufferRef SLIPDecode(const BufferRef& buffer) {
-    // should not assume the leading SLIP_END flush
+    // should not assume double-ENDed variant
     size_t maxDecodedSize = buffer->getSize() - 1;
     BufferRef decodeBuffer = Buffer::create(maxDecodedSize);
     size_t decodedSize = SLIPDecode(reinterpret_cast<const uint8_t*>(buffer->getData()), buffer->getSize(), reinterpret_cast<uint8_t*>(decodeBuffer->getData()));

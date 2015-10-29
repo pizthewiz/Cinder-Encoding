@@ -14,18 +14,18 @@ namespace Cinder { namespace Encoding {
 
 // Serial Line Internet Protocol: https://en.m.wikipedia.org/wiki/Serial_Line_Internet_Protocol
 ci::BufferRef SLIPEncode(const ci::BufferRef& buffer);
-// encodedData size should be 2 * size + 2
+// encodedData must have a minimum capacity of (2 * size + 2)
 size_t SLIPEncode(const uint8_t* data, size_t size, uint8_t* encodedData);
 ci::BufferRef SLIPDecode(const ci::BufferRef& buffer);
-// decodedData size should be size - 1
+// decodedData must have a minimum capacity of (size - 1)
 size_t SLIPDecode(const uint8_t* data, size_t size, uint8_t* decodedData);
 
 // Consistent Overhead Byte Stuffing: https://en.m.wikipedia.org/wiki/Consistent_Overhead_Byte_Stuffing
 ci::BufferRef COBSEncode(const ci::BufferRef& buffer);
-// encodedData size should be size + ceil(size / 254) + 1
+// encodedData must have a minimum capacity of (size + ceil(size / 254) + 1)
 size_t COBSEncode(const uint8_t* data, size_t size, uint8_t* encodedData);
 ci::BufferRef COBSDecode(const ci::BufferRef& buffer);
-// decodedData size should be size - 1
+// decodedData must have a minimum capacity of (size - 1)
 size_t COBSDecode(const uint8_t* data, size_t size, uint8_t* decodedData);
 
 }}
